@@ -1,0 +1,63 @@
+[color]
+	ui = auto
+[core]
+	editor = vi
+	pager = less -iMR
+	autocrlf = false
+[credential]
+	helper = cache --timeout=604800
+[diff]
+	compactionHeuristic = true
+[pager]
+	diff = (diff-highlight 2>/dev/null || cat) | less -iMR
+	show = (diff-highlight 2>/dev/null || cat) | less -iMR
+[interactive]
+	diffFilter = (diff-highlight 2>/dev/null || cat)
+[alias]
+	a = add
+	ad = add
+	addp = add -p
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	b = branch
+	br = branch
+	ci = commit -v
+	ciame = commit --amend
+	ciemp = commit --allow-empty
+	cim = commit -v -m
+	co = checkout
+	cob = checkout -b
+	com = checkout master
+	d = diff
+	d1 = diff HEAD~
+	d2 = diff HEAD~2
+	d3 = diff HEAD~3
+	dif = diff
+	difff = diff
+	cdiff = diff --cached
+	odiff = diff origin/master..HEAD
+	wdiff = diff --word-diff
+	gra = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	graph = log --graph
+	info = config --local -l
+	infog = config --global -l
+	infol = config --local -l
+	lg = log --graph --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %<(60,trunc)%s %C(cyan)@%an%C(reset)\"
+	lgn = !git --no-pager log --graph --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+	lgs = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+	logg = log --graph --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lsu = ls-files -u
+	ls = ls-files -v
+	mm = merge master
+	proxy = config --get-regexp http.*proxy
+	mpush = push origin master
+	pmp = !git pull && git push origin master
+	tpush = push origin master --tags
+	skip = update-index --skip-worktree
+	noskip = update-index --no-skip-worktree
+	s = status -s
+	st = status
+	stat = status
+	tagadd = tag -a
+	url = remote -v
+	urlc = config --get-regexp origin.url
