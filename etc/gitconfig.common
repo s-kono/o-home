@@ -31,6 +31,7 @@
 	d1 = diff HEAD~
 	d2 = diff HEAD~2
 	d3 = diff HEAD~3
+	dc = diff --cached
 	dif = diff
 	difff = diff
 	cdiff = diff --cached
@@ -43,10 +44,12 @@
 	infog = config --global -l
 	infol = config --local -l
 	lg = log --graph --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %<(60,trunc)%s %C(cyan)@%an%C(reset)\"
-	lgn = !git --no-pager log --graph --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
 	lgs = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
 	logg = log --graph --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	slog = log --oneline
+	llog = log
+	lse = ls-files -v --eol
 	lsu = ls-files -u
 	ls = ls-files -v
 	mm = merge master
@@ -56,9 +59,12 @@
 	tpush = push origin master --tags
 	skip = update-index --skip-worktree
 	noskip = update-index --no-skip-worktree
+	rev = rev-parse --short
 	s = status -s
 	st = status
 	stat = status
+	user = config --get-regexp ^user
 	tagadd = tag -a
 	url = remote -v
+	urll = !git remote -v && echo && git remote -v | sed 's/'$( whoami )'@//' | awk '{print $2}' | uniq
 	urlc = config --get-regexp origin.url
