@@ -3,6 +3,7 @@
 	email = Name@example.com
 [url "git@github.com:"]
 	pushinsteadof = "https://github.com/"
+	pushinsteadof = "https://Name@github.com/"
 	pushinsteadof = "git://github.com/"
 [include]
 	path = ~/etc/gitconfig.common
