@@ -1,0 +1,9 @@
+.*
+*.pyc
+*.swp
+RCS/
+__pycache__/
+local/
+test/
+tmp/
+work/
