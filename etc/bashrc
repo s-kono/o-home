@@ -1,0 +1,75 @@
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+[ -t 0 ] && stty stop undef
+
+ export PS1="[\u@\h \[\e[1;34m\]\t\[\e[m\] \W]\$ "
+ export PS4='+ [${BASH_SOURCE}:${LINENO}] ${FUNCNAME:+$FUNCNAME(): }'
+ export PATH=~/bin:~/local/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+ export LANG=C
+ export LC_CTYPE=en_US.utf8
+#export LC_TIME=ja_JP.utf8
+
+ export PYTHON_EGG_CACHE=~/.python-eggs/
+ export SVN_EDITOR=vi
+ export TERM=screen-256color
+
+ export HISTFILE=~/.bash_history
+ export HISTSIZE=300000
+ export HISTFILESIZE=300000
+ export HISTCONTROL=ignorespace
+ export HISTIGNORE='df:df *:free:free *:history:ls:ls *:ll:pwd:reload:top:w'
+ export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
+ export PROMPT_COMMAND='history -a;history -c;history -r'
+
+#alias    reload='exec ${SHELL} --login'
+ alias    reload='exec $0 --login'
+
+ alias      awk1='awk "{print \$1;  fflush();}"'
+ alias     awknf='awk "{print \$NF; fflush();}"'
+ alias   awktime="awk '{print strftime(\"%Y-%m-%dT%H:%M:%S%z\"),\$0;fflush()}'"
+
+ alias        df='LANG=C df --portability'
+
+ alias      digs='dig +short'
+
+ alias      grep='grep --line-buffered --color=auto'
+ alias     grepc='grep --line-buffered --color=always'
+
+ alias      less='less -iMR'
+
+ alias       jqc='jq --color-output'
+
+ alias      vess=/usr/share/vim/vim$( vi --version | head -1 | sed 's/^.*\ \([0-9]\)\.\([0-9]\)\ .*$/\1\2/' )/macros/less.sh
+
+ alias        ls='ls --color=tty --time-style=long-iso'
+ alias        la='ls -lFa'
+ alias        ll='ls -lF'
+
+ alias        ps='LANG=C ps'
+
+ alias pycompile='python -m py_compile'
+
+ alias       sed='sed -u'
+ alias    sedtag="sed 's/<[^>]*>//g'"
+
+ alias    sshopt='ssh -oConnectTimeout=5 -oBatchMode=yes -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oCheckHostIP=no'
+
+ alias      trns="tr '\n' ' '"
+
+ alias    sortv4='sort -nt. -k1,1 -k2,2 -k3,3 -k4,4'
+
+ alias        vi=vim
+
+ alias      wget='wget --content-disposition'
+
+ alias        ca='pygmentize -O style=monokai -f terminal256 -g -O encoding=utf-8 -l ruby'
+ function tails(){
+   if [ -z "$1" ]; then
+     ls -lFtr      | tail $2 | ca
+   else
+     ls -lFtr *$1* | tail $2 | ca
+   fi
+ }
+## EOF ##
