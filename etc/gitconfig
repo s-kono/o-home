@@ -18,4 +18,4 @@
 	process = git-lfs filter-process
 	required = true
 [alias]
-	tmpci = -c user.name='tmp' -c user.email='tmp@example.jp' commit
+	citmp = -c user.name='tmp' -c user.email='tmp@example.jp' commit
